@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace P6Shop_EdisonChavarriaVasquez.Models
+namespace P6Shop_API_EdisonChavarriaVasquez.Models
 {
     public partial class P6SHOPPINGContext : DbContext
     {

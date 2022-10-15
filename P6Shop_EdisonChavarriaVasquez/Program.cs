@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using P6Shop_EdisonChavarriaVasquez.Models;
+using P6Shop_API_EdisonChavarriaVasquez.Models;
 
 internal class Program
 {
@@ -18,7 +18,7 @@ internal class Program
 
         var conn = @"SERVER=DESKTOP-AIMH9J6;DATABASE=P6SHOPPING; INTEGRATED SECURITY=TRUE; User Id=;Password=";
 
-        builder.Services.AddDbContext<P6SHOPPINGContext>(options => options.UseSqlServer(conn));
+       builder.Services.AddDbContext<P6SHOPPINGContext>(options => options.UseSqlServer(conn));
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -33,9 +33,11 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        app.UseRouting();
+      
 
         app.UseAuthorization();
+
+        app.UseRouting();
 
         app.MapControllers();
 

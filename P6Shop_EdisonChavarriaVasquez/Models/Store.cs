@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace P6Shop_EdisonChavarriaVasquez.Models
+namespace P6Shop_API_EdisonChavarriaVasquez.Models
 {
     public partial class Store
     {

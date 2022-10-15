@@ -7,51 +7,51 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using P6Shop_API_EdisonChavarriaVasquez.Models;
 
-namespace P6Shop_EdisonChavarriaVasquez.Controllers
+namespace P6Shop_API_EdisonChavarriaVasquez.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CurrenciesController : ControllerBase
+    public class CountriesController : ControllerBase
     {
         private readonly P6SHOPPINGContext _context;
 
-        public CurrenciesController(P6SHOPPINGContext context)
+        public CountriesController(P6SHOPPINGContext context)
         {
             _context = context;
         }
 
-        // GET: api/Currencies
+        // GET: api/Countries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Currency>>> GetCurrencies()
+        public async Task<ActionResult<IEnumerable<Country>>> GetCountries()
         {
-            return await _context.Currencies.ToListAsync();
+            return await _context.Countries.ToListAsync();
         }
 
-        // GET: api/Currencies/5
+        // GET: api/Countries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Currency>> GetCurrency(int id)
+        public async Task<ActionResult<Country>> GetCountry(int id)
         {
-            var currency = await _context.Currencies.FindAsync(id);
+            var country = await _context.Countries.FindAsync(id);
 
-            if (currency == null)
+            if (country == null)
             {
                 return NotFound();
             }
 
-            return currency;
+            return country;
         }
 
-        // PUT: api/Currencies/5
+        // PUT: api/Countries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCurrency(int id, Currency currency)
+        public async Task<IActionResult> PutCountry(int id, Country country)
         {
-            if (id != currency.Idcurrency)
+            if (id != country.Idcountry)
             {
                 return BadRequest();
             }
 
-            _context.Entry(currency).State = EntityState.Modified;
+            _context.Entry(country).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace P6Shop_EdisonChavarriaVasquez.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CurrencyExists(id))
+                if (!CountryExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +72,36 @@ namespace P6Shop_EdisonChavarriaVasquez.Controllers
             return NoContent();
         }
 
-        // POST: api/Currencies
+        // POST: api/Countries
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Currency>> PostCurrency(Currency currency)
+        public async Task<ActionResult<Country>> PostCountry(Country country)
         {
-            _context.Currencies.Add(currency);
+            _context.Countries.Add(country);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCurrency", new { id = currency.Idcurrency }, currency);
+            return CreatedAtAction("GetCountry", new { id = country.Idcountry }, country);
         }
 
-        // DELETE: api/Currencies/5
+        // DELETE: api/Countries/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCurrency(int id)
+        public async Task<IActionResult> DeleteCountry(int id)
         {
-            var currency = await _context.Currencies.FindAsync(id);
-            if (currency == null)
+            var country = await _context.Countries.FindAsync(id);
+            if (country == null)
             {
                 return NotFound();
             }
 
-            _context.Currencies.Remove(currency);
+            _context.Countries.Remove(country);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CurrencyExists(int id)
+        private bool CountryExists(int id)
         {
-            return _context.Currencies.Any(e => e.Idcurrency == id);
+            return _context.Countries.Any(e => e.Idcountry == id);
         }
     }
 }
