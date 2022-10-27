@@ -1,3 +1,4 @@
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using P6Shop_API_EdisonChavarriaVasquez.Models;
 
@@ -14,6 +15,16 @@ internal class Program
         // Add services to the container.
 
         builder.Services.AddControllers();
+
+
+        //Obtenemos la info de la cadena de conexion desde el archivo de configuracion
+        //appsettings.json el nombre de la etiqueta es CNNSTR
+
+        var CnnStrBuilder = new SqlConnectionStringBuilder(
+            builder.Configuration.GetConnectionString("CNNSTR")
+            );
+
+        var CnnStr = CnnStrBuilder.ConnectionString;
 
 
         var conn = @"SERVER=DESKTOP-AIMH9J6;DATABASE=P6SHOPPING; INTEGRATED SECURITY=TRUE; User Id=;Password=";

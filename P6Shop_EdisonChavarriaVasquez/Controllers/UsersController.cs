@@ -11,6 +11,7 @@ namespace P6Shop_API_EdisonChavarriaVasquez.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class UsersController : ControllerBase
     {
         private readonly P6SHOPPINGContext _context;

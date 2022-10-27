@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using P6Shop_API_EdisonChavarriaVasquez;
 using P6Shop_API_EdisonChavarriaVasquez.Models;
 
 namespace P6Shop_EdisonChavarriaVasquez.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class CurrenciesController : ControllerBase
     {
         private readonly P6SHOPPINGContext _context;
